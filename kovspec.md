@@ -4,6 +4,12 @@ A cél egy olyan weboldal létrehozása, ahol a látogatók véletlenszerűen ge
 A mostani felgyorsult világ egyre jobban előhozza a stresszt az emberekben ezért egy vicceket tartalmazó oldal gyors feloldódási eszköznek bizonyosulhat. Mivel a telefon majdnem mindenki zsebében ott van, így egy viccportál könnyen elérhető weboldalnak minősül.
 # Vágyálom rendszer:
 A projekt célja egy olyan reszponzív felületú webalkalmazás, amelyen  a felhasználó a regisztrcációt követően elmentheti a neki tetsző vicceket azok like-olásával. A felület legyen átlátható, könnyen kezelhető, hogy a navigálás gyors és egyszerű legyen a felhasználók számára. Staisztikát le lehessen kérni az oldalról, hogy mely viccek voltak a legnépszerűbbek az adott vicc like mennyiségét figyelve.
+# Funkcionális követelmények
+
+- **Felhasználói funkciók**: regisztráció, bejelentkezés, random vicc lekérése, like, kedvencek listázása, profil adatok módosítása.
+- **Adminisztrációs funkciók**: felhasználók kezelése, viccek statisztikáinak megtekintése.
+- **Rendszer funkciók**: biztonságos hitelesítés (JWT), adatbázisban viccek és like-ok tárolása, hibakezelés.
+
 # Rendszerre vonatkozó törvények, szabályok, ajánlások:
 - **A weboldal megfelel az alábbi törvényeknek:**
     - Mivel a mi oldalunk szeretne felhasználókat azonosítani, ezért az alábbi szükséges jogszabályokat bekell tartani:
@@ -13,6 +19,12 @@ A projekt célja egy olyan reszponzív felületú webalkalmazás, amelyen  a fel
         - A webfelület szabványos eszközökkel készüljön (HTML, CSS, JavaScript)
     - Ajánlás:
         - A web oldal legyen akadálymentes ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/))
+# Jelenlegi üzleti folyamatok modellje
+
+Jelenleg a felhasználók csak az API-ból érhetnek el random vicceket, like-olás és statisztika nélkül.
+Ez a folyamat egyszerű, de **korlátozott élményt nyújt**, mivel a felhasználók csak véletlenszerű vicceket olvasnak, anélkül hogy közösségi vagy személyre szabott funkciók állnának rendelkezésre.
+Az új alkalmazás célja: regisztráció, személyre szabott élmény (kedvencek, toplista), biztonságos adatkezelés és közösségi funkciók biztosítása.
+
 # Igényelt üzleti folyamatok
 A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön oldalon  folytatódik. A sikeres bejelentkezést követően elérhetővé válik a kedvelés funkció, amely rögzítésre kerül az adatbázisba. Ezek alapján a rendszer automatikusan felállít egy rangsort, amely a "Top jokes" oldalon jelenik meg. 
 # Követelménylista
@@ -27,6 +39,24 @@ A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön
 |Felület     |K7  |Viccek lekérése                     |1.0     |Véletlenszerű viccek jelennek meg a főoldalon. |
 |Felület     |K8  |Kedvelés                            |1.0     |A felhasználó kedvelheti a viccet, ezek rögzítésre kerülnek az adatbázisban. |
 |Statisztika |K9  |Top viccek                          |1.0     |A kedvelések alapján automatikusan elkészül a top viccek listája. |
+
+# 9. Riportok
+
+### Szabad riport
+**Kérdés:** Hogyan kellene működnie az új rendszernek?
+**Válasz:**
+A felhasználók regisztrálhatnak, random vicceket kapnak, kedvencekbe tehetik őket, és megtekinthetik a toplistát. Az adatok biztonságosan tárolódnak.
+
+---
+### Irányított riport
+1. **Hogyan kapják a vicceket?**
+   Random API-hívással.
+2. **Milyen adatokat tárol a rendszer?**
+   Felhasználók, viccek, like-ok.
+3. **Mit tehet a felhasználó?**
+   Vicc megtekintése, like, toplista böngészése.
+4. **Hogyan biztosítjuk a biztonságot?**
+   Titkosított jelszavak, jogosultságkezelés.
 
 # Fogalomtár:
 - HTML: Hypertext Markup Language
