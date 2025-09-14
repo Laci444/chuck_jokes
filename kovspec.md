@@ -18,3 +18,15 @@ A projekt célja egy olyan reszponzív felületú webalkalmazás, amelyen  a fel
 
     - Ajánlás:
         - A web oldal legyen akadálymentes ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/))
+
+# 10. Fogalomtár:
+
+- HTML: Hypertext Markup Language
+
+- CSS: Cascading Style Sheet
+
+- Reszponzív felület: Mobilon, tableten, PC-n igazodik a  képernyőhöz a felület mérete, azaz több eszközön is probléma nélkül üzemelhet
+
+- Bejelentkezett felhasználó: van fiókja regisztrálva ami miatt nem vesznek el az adatai az oldal frissítése után
+
+- Látogató: nincs regisztált fiókja, ha frissíti az oldalt akkor elveszíti az adatait
