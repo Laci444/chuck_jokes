@@ -1,0 +1,4 @@
+# Áttekintés
+A cél egy olyan weboldal létrehozása, ahol a látogatók véletlenszerűen generált vicceket tudnak lekérni. A rendszer biztosítja a regisztrációt és a bejelentkezést, valamint a kedvelések alapján rangsort állít fel, így a felhasználók a top vicceket is böngészhetik. 
+# Igényelt üzleti folyamatok
+A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön oldalon  folytatódik. A sikeres bejelentkezést követően elérhetővé válik a kedvelés funkció, amely rögzítésre kerül az adatbázisba. Ezek alapján a rendszer automatikusan felállít egy rangsort, amely a "Top jokes" oldalon jelenik meg. 
