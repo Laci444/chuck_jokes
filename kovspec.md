@@ -27,3 +27,10 @@ A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön
 |Felület     |K7  |Viccek lekérése                     |1.0     |Véletlenszerű viccek jelennek meg a főoldalon. |
 |Felület     |K8  |Kedvelés                            |1.0     |A felhasználó kedvelheti a viccet, ezek rögzítésre kerülnek az adatbázisban. |
 |Statisztika |K9  |Top viccek                          |1.0     |A kedvelések alapján automatikusan elkészül a top viccek listája. |
+
+# Fogalomtár:
+- HTML: Hypertext Markup Language
+- CSS: Cascading Style Sheet
+- Reszponzív felület: Mobilon, tableten, PC-n igazodik a  képernyőhöz a felület mérete, azaz több eszközön is probléma nélkül üzemelhet
+- Bejelentkezett felhasználó: van fiókja regisztrálva ami miatt nem vesznek el az adatai az oldal frissítése után
+- Látogató: nincs regisztált fiókja, ha frissíti az oldalt akkor elveszíti az adatait
