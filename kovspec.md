@@ -1,16 +1,26 @@
-# Áttekintés
-A cél egy olyan weboldal létrehozása, ahol a látogatók véletlenszerűen generált vicceket tudnak lekérni. A rendszer biztosítja a regisztrációt és a bejelentkezést, valamint a kedvelések alapján rangsort állít fel, így a felhasználók a top vicceket is böngészhetik. 
-# Jelenlegi helyzet:
+
+# Követelményspecifikáció
+
+## Áttekintés
+
+A cél egy olyan weboldal létrehozása, ahol a látogatók véletlenszerűen generált vicceket tudnak lekérni. A rendszer biztosítja a regisztrációt és a bejelentkezést, valamint a kedvelések alapján rangsort állít fel, így a felhasználók a top vicceket is böngészhetik.
+
+## Jelenlegi helyzet:
+
 A mostani felgyorsult világ egyre jobban előhozza a stresszt az emberekben ezért egy vicceket tartalmazó oldal gyors feloldódási eszköznek bizonyosulhat. Mivel a telefon majdnem mindenki zsebében ott van, így egy viccportál könnyen elérhető weboldalnak minősül.
-# Vágyálom rendszer:
-A projekt célja egy olyan reszponzív felületú webalkalmazás, amelyen  a felhasználó a regisztrcációt követően elmentheti a neki tetsző vicceket azok like-olásával. A felület legyen átlátható, könnyen kezelhető, hogy a navigálás gyors és egyszerű legyen a felhasználók számára. Staisztikát le lehessen kérni az oldalról, hogy mely viccek voltak a legnépszerűbbek az adott vicc like mennyiségét figyelve.
-# Funkcionális követelmények
+
+## Vágyálom rendszer:
+
+A projekt célja egy olyan reszponzív felületű webalkalmazás, amelyen  a felhasználó a regisztrációt követően elmentheti a neki tetsző vicceket azok like-olásával. A felület legyen átlátható, könnyen kezelhető, hogy a navigálás gyors és egyszerű legyen a felhasználók számára. Statisztikát le lehessen kérni az oldalról, hogy mely viccek voltak a legnépszerűbbek az adott vicc like mennyiségét figyelve.
+
+## Funkcionális követelmények
 
 - **Felhasználói funkciók**: regisztráció, bejelentkezés, random vicc lekérése, like, kedvencek listázása, profil adatok módosítása.
 - **Adminisztrációs funkciók**: felhasználók kezelése, viccek statisztikáinak megtekintése.
 - **Rendszer funkciók**: biztonságos hitelesítés (JWT), adatbázisban viccek és like-ok tárolása, hibakezelés.
 
-# Rendszerre vonatkozó törvények, szabályok, ajánlások:
+## Rendszerre vonatkozó törvények, szabályok, ajánlások:
+
 - **A weboldal megfelel az alábbi törvényeknek:**
     - Mivel a mi oldalunk szeretne felhasználókat azonosítani, ezért az alábbi szükséges jogszabályokat bekell tartani:
         - [GDPR](https://gdpr-info.eu/)
@@ -19,15 +29,21 @@ A projekt célja egy olyan reszponzív felületú webalkalmazás, amelyen  a fel
         - A webfelület szabványos eszközökkel készüljön (HTML, CSS, JavaScript)
     - Ajánlás:
         - A web oldal legyen akadálymentes ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/))
-# Jelenlegi üzleti folyamatok modellje
+
+## Jelenlegi üzleti folyamatok modellje
 
 Jelenleg a felhasználók csak az API-ból érhetnek el random vicceket, like-olás és statisztika nélkül.
+
 Ez a folyamat egyszerű, de **korlátozott élményt nyújt**, mivel a felhasználók csak véletlenszerű vicceket olvasnak, anélkül hogy közösségi vagy személyre szabott funkciók állnának rendelkezésre.
+
 Az új alkalmazás célja: regisztráció, személyre szabott élmény (kedvencek, toplista), biztonságos adatkezelés és közösségi funkciók biztosítása.
 
-# Igényelt üzleti folyamatok
-A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön oldalon  folytatódik. A sikeres bejelentkezést követően elérhetővé válik a kedvelés funkció, amely rögzítésre kerül az adatbázisba. Ezek alapján a rendszer automatikusan felállít egy rangsort, amely a "Top jokes" oldalon jelenik meg. 
-# Követelménylista
+## Igényelt üzleti folyamatok
+
+A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön oldalon  folytatódik. A sikeres bejelentkezést követően elérhetővé válik a kedvelés funkció, amely rögzítésre kerül az adatbázisba. Ezek alapján a rendszer automatikusan felállít egy rangsort, amely a "Top jokes" oldalon jelenik meg.
+
+## Követelménylista
+
 | Modul      | Id | Név                                | Verzió | Kifejtés  |
 |:----------:|:--:|:----------------------------------:|:------:|:-----------|
 |Jogosultság |K1  |Bejelentkezési felület              |1.0     |A felhasználó a felhasználónév és jelszó alapján bejelentkezhet. Ha a megadott felhasználónév és/vagy jelszó nem megfelelő, akkor hibaüzenet jelenik meg.|
@@ -40,14 +56,13 @@ A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön
 |Felület     |K8  |Kedvelés                            |1.0     |A felhasználó kedvelheti a viccet, ezek rögzítésre kerülnek az adatbázisban. |
 |Statisztika |K9  |Top viccek                          |1.0     |A kedvelések alapján automatikusan elkészül a top viccek listája. |
 
-# 9. Riportok
+## Riportok
 
 ### Szabad riport
 **Kérdés:** Hogyan kellene működnie az új rendszernek?
 **Válasz:**
 A felhasználók regisztrálhatnak, random vicceket kapnak, kedvencekbe tehetik őket, és megtekinthetik a toplistát. Az adatok biztonságosan tárolódnak.
 
----
 ### Irányított riport
 1. **Hogyan kapják a vicceket?**
    Random API-hívással.
@@ -58,9 +73,10 @@ A felhasználók regisztrálhatnak, random vicceket kapnak, kedvencekbe tehetik 
 4. **Hogyan biztosítjuk a biztonságot?**
    Titkosított jelszavak, jogosultságkezelés.
 
-# Fogalomtár:
+## Fogalomtár:
+
 - HTML: Hypertext Markup Language
 - CSS: Cascading Style Sheet
 - Reszponzív felület: Mobilon, tableten, PC-n igazodik a  képernyőhöz a felület mérete, azaz több eszközön is probléma nélkül üzemelhet
 - Bejelentkezett felhasználó: van fiókja regisztrálva ami miatt nem vesznek el az adatai az oldal frissítése után
-- Látogató: nincs regisztált fiókja, ha frissíti az oldalt akkor elveszíti az adatait
+- Látogató: nincs regisztrált fiókja, ha frissíti az oldalt akkor elveszíti az adatait
