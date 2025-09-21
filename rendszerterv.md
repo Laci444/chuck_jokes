@@ -82,17 +82,65 @@ Látogató:
 
 ## Fizikai környezet
 
+Az alkalmazás 3 komponensből áll. A frontend egy webes felület, amely a modern böngészők legtöbbjén kompatibilis lesz. A backend linux rendszerre tervezett alkalmazás. Az adatbázis PostgreSQL DBMS.
+
+A fejlesztés során integrált fejlesztői környezeteket (Visual Studio Code, IntelliJ PyCharm), konténerizációs eszközöket (Docker, Podman) és a teszteléshez szükséges alkalmazásokat (Chrome, Firefox, Postman) használunk.
+
 ## Architekturális terv
 
 **Front-end:** A webalkalmazás front-endje a React JS könyvtár használatával készül el.
 
+**Back-end:** A komponens Python nyelven íródik, a Django keretrendszer használatával.
+
+**Adatbázis:** PostgreSQL DBMS alapú relációs adatbázis
+
 ## Adatbázis terv
+
+```
+Table users {
+  id int [pk, increment]
+  email varchar(255) [not null, unique]
+  password_hash varchar(255) [not null]
+  username varchar(100)
+  is_admin boolean [default: false]
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  last_login timestamp
+}
+
+Table jokes {
+  id int [pk, increment]
+  external_id varchar(100) [unique]
+  content text [not null]
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table likes {
+  id int [pk, increment]
+  user_id int [not null, ref: > users.id]
+  joke_id int [not null, ref: > jokes.id]
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+}
+```
+![Database diagram](database_diagram.svg)
 
 ## Implementációs terv
 
 **Web:** A webes felület főként HTML, CSS és Javascript nyelven fog készülni. Ezeket a technológiákat amennyire csak lehet külön fájlokba írva készítjük, és úgy fogjuk egymáshoz csatolni a jobb átláthatóság, könnyebb változtathatóság, és könnyebb bővítés érdekében.
 
+**Back-end:** A backend API Python nyelvben, Django keretrendszerben fog készülni. A webes frontend REST API-on keresztül érheti el, JWT authentikációval védve.
+
 ## Tesztterv
+
+A tesztelések célja a rendszer és komponensei funkcionalitásának teljes vizsgálata, ellenőrzése, a rendszer által megvalósított üzleti szolgáltatások verifikálása.
+
+Tesztelési eljárások:
+- Egységtesztelés: A kódrészek megfelelő működésének biztosítása fejlesztés idejében írt tesztesetekkel.
+- Integrációs/regressziós tesztek: A nagyobb komponensek közös működésének biztosítása teljes folyamatok tesztelésével.
+- Alfa/beta tesztek: belső és külső manuális tesztelés a felhasználói élmény biztosítására és a szélsőséges esetek kiszűrésére.
+
+Tesztelendő funkciók:
+- Backend: egyidejűleg több kliens kiszolgálása, az adatbázis olvasása és írása
+- Frontend: a meghatározott funkciók biztosítása igényes, intuitív és hozzáférhető módon
 
 ## Telepítési terv
 
