@@ -1,3 +1,1 @@
-1: Vicces Viktor megnyitja a böngészőben a Chuck Jokes alkalmazást, és egyből lát egy random viccet.
-2: Szélen megjelenik egy kisebb nézett a legtöbbet like-olt viccekből. 
-3: Vicces Viktor rákattint a regisztáció gombra és e-mail címének és jelszavának megadásával regisztrál. 
+Vicces Viktor megnyitja a böngészőben a Chuck Jokes alkalmazást, és egyből lát egy random viccet. Ha nem tetszik neki a vicc, akkor egy gomb megnyomással kérhet egy új viccet, ami lehet jobban fog neki tetszeni. Ha tovább szeretne nevetni, akkor generálhat egy új viccet, akár a végtelenségig. Ha Vicces Viktor szeretné kifejezni, hogy egy adott vicc tetszik-e neki, akkor regisztrálhat egy e-mail címmel és jelszóval, hogy like-olni tudja az ő ízlésének megfelelő vicceket. Ha kíváncsi, hogy a többi ember milyen vicceket kedvelt mielőtt ő felment az oldalra, akkor ezt megnézheti egy "Top jokes" részlegben az oldal jobb oldalán.
