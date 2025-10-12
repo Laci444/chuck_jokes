@@ -94,6 +94,32 @@ export const handlers = [
             username: user.username,
             email: user.email,
         })
+    }),
+    http.post('/api/jokes', async ({ request }) => {
+        try {
+            const {jokeId, joke} = await request.json();
+
+            if(!jokeId || !joke) {
+                console.error('[MSW] Invalid joke payload:', {jokeId, joke})
+                return HttpResponse.json(
+                    {message: 'Invalid joke payload' },
+                    {status: 400}
+                )
+            }
+
+            console.log('joke saved by liking:', {jokeId, joke})
+
+            return HttpResponse.json(
+                {message: 'Joke saved successfully'},
+                {status: 200}
+            )
+        } catch (error) {
+            console.error('[MSW] Unable to jokes saved by liking:', error)
+            return HttpResponse.json(
+                {message: 'Internal mock server error'},
+                {status: 500}
+            )
+        }
     })
 
 ]

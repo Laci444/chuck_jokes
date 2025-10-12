@@ -67,7 +67,7 @@ const Signup = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}/>
                     <br/>
-                    <button type="submit">Login</button>
+                    <button type="submit" className="cursor-pointer">Sign Up</button>
                 </form>
 
             </div>
