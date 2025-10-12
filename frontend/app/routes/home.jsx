@@ -1,5 +1,5 @@
 import {Link} from "react-router";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export function meta() {
     return [
@@ -16,6 +16,10 @@ export default function Home() {
             .then(response => response.json())
             .then(joke => setJoke(joke.value))
     }
+
+    useEffect(() => {
+        fetch('/api/users')
+    }, [])
 
     return (
         <>

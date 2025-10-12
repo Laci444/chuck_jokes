@@ -6,9 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import "./app.css";
 import {AuthProvider} from "./context/useAuth.jsx";
+import {useEffect, useState} from "react";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -42,11 +42,27 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-    return (
-    <AuthProvider>
-        <Outlet />
-    </AuthProvider>
+    const [mswReady, setMswReady] = useState(import.meta.env.PROD);
+
+    useEffect(() => {
+        if (import.meta.env.DEV) {
+            import('./mocks/browser').then(({worker}) => {
+                worker.start({onUnhandledRequest: 'bypass'}).then(() => {
+                    console.log('[MSW] Mocking enabled.')
+                    setMswReady(true)
+                })
+            })
+        }
+    }, [])
+
+    if(!mswReady) return <p>Starting mock server...</p>;
+
+    return(
+        <AuthProvider>
+            <Outlet />
+        </AuthProvider>
     )
+
 }
 
 export function ErrorBoundary({ error }) {

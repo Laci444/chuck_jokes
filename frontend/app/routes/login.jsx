@@ -1,11 +1,14 @@
 import {useState} from "react";
-import { login } from "../endpoints/api"
+//import { login } from "../endpoints/api"
 import {useNavigate} from "react-router";
+import {useAuth} from "../context/useAuth.jsx";
 
 const Login = () => {
     const[ username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const nav = useNavigate();
+
+    const {login} = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -39,6 +42,7 @@ const Login = () => {
                         className="bg-gray-300"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}/>
+                    <br/>
                     <button type="submit">Login</button>
                 </form>
 
