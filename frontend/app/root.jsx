@@ -9,7 +9,8 @@ import {
 import "./app.css";
 import {AuthProvider} from "./context/useAuth.jsx";
 import {useEffect, useState} from "react";
-
+import { ThemeProvider } from "./components/themeProvider";
+import {Toaster} from "./components/ui/sonner.jsx";
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -25,8 +26,9 @@ export const links = () => [
 
 export function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background!">
       <head>
+        <title>Chuck Jokes</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
@@ -58,9 +60,14 @@ export default function App() {
     if(!mswReady) return <p>Starting mock server...</p>;
 
     return(
+        <ThemeProvider>
         <AuthProvider>
-            <Outlet />
+            <main className="flex-1 p-5 sm:px-20">
+                <Outlet />
+            </main>
+            <Toaster/>
         </AuthProvider>
+        </ThemeProvider>
     )
 
 }

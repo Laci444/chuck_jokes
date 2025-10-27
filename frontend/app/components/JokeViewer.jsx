@@ -1,6 +1,16 @@
 import {useAuth} from "../context/useAuth.jsx";
 import {useState} from "react";
 import axios from "axios";
+import {
+    Card,
+    CardAction,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "./ui/card"
+import {Button} from "./ui/button.jsx";
 
 export default function JokeViewer() {
     const { isAuthenticated } = useAuth()
@@ -34,30 +44,30 @@ export default function JokeViewer() {
     }
 
     return (
-        <div className="flex items-center justify-center h-screen text-black flex-col gap-4 text-center">
-            <div className="bg-transparent p-8 rounded shadow-2xl break-words w-[600px] min-h-[200px] text-center justify-center">
-                <p className="mb-4 ">
-                    {joke ? joke.value : "Click the button to get a joke!"}
-                </p>
+        <div className="flex justify-center items-center min-h-screen">
+            <Card>
+                <CardContent className="flex flex-col items-center text-center space-y-4">
+                    {joke ? (
+                        <>
+                            <p className="text-lg">{joke.value}</p>
+                            <button
+                                onClick={likeJoke}
+                                disabled={!isAuthenticated || liked}
+                                className="text-2xl"
+                            >
+                                {liked ? '❤️' : '🤍'}
+                            </button>
+                        </>
+                    ) : (
+                        <p>Click the button to get a joke!</p>
+                    )}
+                </CardContent>
 
-                {joke && (
-                    <>
-                        <button onClick={likeJoke} disabled={!isAuthenticated || liked} className="text-2xl">
-                            {liked ? '❤️' : '🤍'}
-                        </button>
-                        {!isAuthenticated && (
-                            <p className="text-sm mt-2 text-red-600">You must be logged in to like jokes.</p>
-                        )}
-                    </>
-                )}
-            </div>
-
-            <button
-                onClick={fetchJoke}
-                className="hover:bg-blue-300 text-black  px-6 py-3 rounded-4xl cursor-pointer"
-            >
-                Generate joke
-            </button>
+                <CardFooter className="justify-center">
+                    <Button onClick={fetchJoke}>Generate</Button>
+                </CardFooter>
+            </Card>
         </div>
+
     )
 }
