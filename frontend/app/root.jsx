@@ -1,98 +1,102 @@
 import {
-    isRouteErrorResponse,
-    Links,
-    Meta,
-    Outlet,
-    Scripts,
-    ScrollRestoration,
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
 } from "react-router";
-
 import "./app.css";
-import createAuthStore from "react-auth-kit/store/createAuthStore";
-import createRefresh from "react-auth-kit/refresh/createRefresh";
-import AuthProvider from "react-auth-kit";
-import {refresh} from "./lib/authTokenRefresh";
-import Header from "./layout/header";
-import {ThemeProvider} from "./components/themeProvider.jsx";
+import {AuthProvider} from "./context/useAuth.jsx";
+import {useEffect, useState} from "react";
+import { ThemeProvider } from "./components/themeProvider";
 import {Toaster} from "./components/ui/sonner.jsx";
-
 export const links = () => [
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-    },
-    {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-    },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
 ];
 
 export function Layout({ children }) {
-    return (
-        <html lang="en">
-        <head>
-            <title>Chuck Jokes</title>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="width=device-width initial-scale=1" />
-            <Meta />
-            <Links />
-        </head>
-        <body>
+  return (
+    <html lang="en" className="bg-background!">
+      <head>
+        <title>Chuck Jokes</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }
 
 export default function App() {
-    const authStore = createAuthStore("localstorage", {
-        authName: "auth",
-        refresh: createRefresh(refresh),
-    });
-    return (
+    const [mswReady, setMswReady] = useState(import.meta.env.PROD);
+
+    useEffect(() => {
+        if (import.meta.env.DEV) {
+            import('./mocks/browser').then(({worker}) => {
+                worker.start({onUnhandledRequest: 'bypass'}).then(() => {
+                    console.log('[MSW] Mocking enabled.')
+                    setMswReady(true)
+                })
+            })
+        }
+    }, [])
+
+    if(!mswReady) return <p>Starting mock server...</p>;
+
+    return(
         <ThemeProvider>
-            <AuthProvider store={authStore}>
-                <div className="flex flex-col min-h-screen">
-                    <Header />
-                    <main className="flex-1 flex justify-center items-center p-4 sm:p-10">
-                        <Outlet />
-                    </main>
-                    <Toaster />
-                </div>
-            </AuthProvider>
+        <AuthProvider>
+            <main className="flex-1 p-5 sm:px-20">
+                <Outlet />
+            </main>
+            <Toaster/>
+        </AuthProvider>
         </ThemeProvider>
     )
+
 }
 
 export function ErrorBoundary({ error }) {
-    let message = "Oops!";
-    let details = "An unexpected error occurred.";
-    let stack;
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack;
 
-    if (isRouteErrorResponse(error)) {
-        message = error.status === 404 ? "404" : "Error";
-        details =
-            error.status === 404
-                ? "The requested page could not be found."
-                : error.statusText || details;
-    } else if (import.meta.env.DEV && error && error instanceof Error) {
-        details = error.message;
-        stack = error.stack;
-    }
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
+  }
 
-    return (
-        <main className="pt-16 p-4 container mx-auto">
-            <h1>{message}</h1>
-            <p>{details}</p>
-            {stack && (
-                <pre className="w-full p-4 overflow-x-auto">
+  return (
+    <main className="pt-16 p-4 container mx-auto">
+      <h1>{message}</h1>
+      <p>{details}</p>
+      {stack && (
+        <pre className="w-full p-4 overflow-x-auto">
           <code>{stack}</code>
         </pre>
-            )}
-        </main>
-    );
+      )}
+    </main>
+  );
 }
