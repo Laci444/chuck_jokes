@@ -4,6 +4,9 @@ import {mockApi} from "./mockApi.js";
 const apiImpl = {
     likeJoke(joke) {
         return backend.post("/api/jokes/", joke).then((r) => r.data);
+    },
+    getJokeList() {
+        return backend.get("api/jokes/").then((r) => r.data);
     }
 }
 

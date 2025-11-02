@@ -1,4 +1,4 @@
-const mockJokesDB = [];
+import {mockJokesDB} from "../mocks/mockJokesDB.js"
 
 export const mockApi = {
     async likeJoke(joke) {
@@ -10,4 +10,9 @@ export const mockApi = {
         });
         return { success: true, joke };
     },
+
+    async getTopJokes() {
+        const sorted = [...mockJokesDB].sort((a, b) => b.like_count - a.like_count);
+        return sorted.slice(0, 10);
+    }
 }

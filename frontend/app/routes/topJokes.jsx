@@ -1,7 +1,7 @@
+import TopJokesViewer from "../components/joke/TopJokesViewer.jsx";
+
 export default function TopJokes() {
     return (
-        <>
-            Top Jokes Page
-        </>
+        <TopJokesViewer />
     )
 }
