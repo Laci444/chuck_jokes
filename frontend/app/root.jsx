@@ -17,7 +17,7 @@ import {ThemeProvider} from "./components/themeProvider.jsx";
 import {Toaster} from "./components/ui/sonner.jsx";
 
 export const links = () => [
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    {rel: "preconnect", href: "https://fonts.googleapis.com"},
     {
         rel: "preconnect",
         href: "https://fonts.gstatic.com",
@@ -29,20 +29,20 @@ export const links = () => [
     },
 ];
 
-export function Layout({ children }) {
+export function Layout({children}) {
     return (
         <html lang="en">
         <head>
             <title>Chuck Jokes</title>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="width=device-width initial-scale=1" />
-            <Meta />
-            <Links />
+            <meta charSet="utf-8"/>
+            <meta name="viewport" content="width=device-width initial-scale=1"/>
+            <Meta/>
+            <Links/>
         </head>
         <body>
         {children}
-        <ScrollRestoration />
-        <Scripts />
+        <ScrollRestoration/>
+        <Scripts/>
         </body>
         </html>
     );
@@ -57,18 +57,18 @@ export default function App() {
         <ThemeProvider>
             <AuthProvider store={authStore}>
                 <div className="flex flex-col min-h-screen">
-                    <Header />
+                    <Header/>
                     <main className="flex-1 flex justify-center items-center p-4 sm:p-10">
-                        <Outlet />
+                        <Outlet/>
                     </main>
-                    <Toaster />
+                    <Toaster/>
                 </div>
             </AuthProvider>
         </ThemeProvider>
     )
 }
 
-export function ErrorBoundary({ error }) {
+export function ErrorBoundary({error}) {
     let message = "Oops!";
     let details = "An unexpected error occurred.";
     let stack;

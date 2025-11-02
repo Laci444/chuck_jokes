@@ -1,5 +1,5 @@
-import { mockAuth } from "./mockAuth";
-import { backend } from "./axiosProvider";
+import {mockAuth} from "./mockAuth";
+import {backend} from "./axiosProvider";
 
 const authImpl = {
     async login(credentials) {
@@ -10,7 +10,7 @@ const authImpl = {
 
     async refreshAccessToken(refreshToken) {
         return backend
-            .post("/auth/token/refresh/", { refresh: refreshToken })
+            .post("/auth/token/refresh/", {refresh: refreshToken})
             .then((r) => r.data);
     },
 

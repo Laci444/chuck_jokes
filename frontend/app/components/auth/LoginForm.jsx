@@ -1,34 +1,34 @@
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "../ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import {Form, FormField, FormItem, FormLabel, FormControl, FormMessage} from "../ui/form";
+import {Input} from "../ui/input";
+import {Button} from "../ui/button";
 
-export function LoginForm({ form, onSubmit }) {
+export function LoginForm({form, onSubmit}) {
     return (
         <Form {...form}>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
                     control={form.control}
                     name="username"
-                    render={({ field }) => (
+                    render={({field}) => (
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
                                 <Input placeholder="Username" {...field} />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage/>
                         </FormItem>
                     )}
                 />
                 <FormField
                     control={form.control}
                     name="password"
-                    render={({ field }) => (
+                    render={({field}) => (
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
                                 <Input type="password" placeholder="••••••••" {...field} />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage/>
                         </FormItem>
                     )}
                 />

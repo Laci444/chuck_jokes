@@ -1,5 +1,5 @@
-import { Button } from "../ui/button";
-import { LogIn, Settings, User } from "lucide-react";
+import {Button} from "../ui/button";
+import {LogIn, Settings, User} from "lucide-react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -9,8 +9,7 @@ import {
 } from "../ui/dropdown-menu";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
-import { toast } from "sonner";
-import {AuthDialog} from "../auth/AuthDialog.jsx";
+import {toast} from "sonner";
 
 export default function LogoutDropdown() {
     const signOut = useSignOut();
@@ -25,14 +24,14 @@ export default function LogoutDropdown() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button>
-                    <User />
+                    <User/>
                     Profile
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
                 <DropdownMenuLabel>{authUser?.username}</DropdownMenuLabel>
                 <DropdownMenuItem onClick={handleLogout}>
-                    <LogIn />
+                    <LogIn/>
                     Log out
                 </DropdownMenuItem>
             </DropdownMenuContent>

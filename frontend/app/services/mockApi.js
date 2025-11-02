@@ -8,7 +8,7 @@ export const mockApi = {
             value: joke.value,
             likedAt: new Date().toISOString(),
         });
-        return { success: true, joke };
+        return {success: true, joke};
     },
 
     async getTopJokes() {

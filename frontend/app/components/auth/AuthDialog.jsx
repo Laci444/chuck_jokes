@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "../ui/dialog";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
-import { LoginForm } from "./LoginForm";
-import { RegisterForm } from "./RegisterForm";
-import { useForm } from "react-hook-form";
+import React, {useState} from "react";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger} from "../ui/dialog";
+import {Tabs, TabsList, TabsTrigger, TabsContent} from "../ui/tabs";
+import {LoginForm} from "./LoginForm";
+import {RegisterForm} from "./RegisterForm";
+import {useForm} from "react-hook-form";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
-import { auth } from "../../services/auth";
-import { toast } from "sonner";
+import {auth} from "../../services/auth";
+import {toast} from "sonner";
 import {Button} from "../ui/button.jsx";
-import {data} from "react-router";
 
 export function AuthDialog() {
     const [open, setOpen] = useState(false);
     const signIn = useSignIn();
 
-    const loginForm = useForm({ defaultValues: { username: "", password: "" } });
-    const registerForm = useForm({ defaultValues: { username: "", email: "", password: "" } });
+    const loginForm = useForm({defaultValues: {username: "", password: ""}});
+    const registerForm = useForm({defaultValues: {username: "", email: "", password: ""}});
 
     async function onLoginSubmit(values) {
         try {
@@ -37,7 +36,7 @@ export function AuthDialog() {
             }
         } catch (err) {
             console.error(err);
-            loginForm.setError("password", { message: "Invalid username or password" });
+            loginForm.setError("password", {message: "Invalid username or password"});
         }
     }
 
@@ -50,7 +49,7 @@ export function AuthDialog() {
         } catch (err) {
             console.error(err);
             toast.error("Registration failed");
-            registerForm.setError("username", { message: "Could not register user" });
+            registerForm.setError("username", {message: "Could not register user"});
         }
     }
 
@@ -75,11 +74,11 @@ export function AuthDialog() {
                     </TabsList>
 
                     <TabsContent value="login">
-                        <LoginForm form={loginForm} onSubmit={onLoginSubmit} />
+                        <LoginForm form={loginForm} onSubmit={onLoginSubmit}/>
                     </TabsContent>
 
                     <TabsContent value="register">
-                        <RegisterForm form={registerForm} onSubmit={onRegisterSubmit} />
+                        <RegisterForm form={registerForm} onSubmit={onRegisterSubmit}/>
                     </TabsContent>
                 </Tabs>
             </DialogContent>

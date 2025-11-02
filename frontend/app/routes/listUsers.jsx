@@ -3,6 +3,5 @@ export default function ListUsers() {
         <>
             User List Page
         </>
-
     )
 }

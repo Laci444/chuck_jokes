@@ -9,7 +9,6 @@ import {Heart, HeartOff} from "lucide-react";
 
 export default function JokeViewer() {
     const [joke, setJoke] = useState(null);
-    const [message, setMessage] = useState(null);
     const [liked, setLiked] = useState(false);
     const isAuthenticated = useIsAuthenticated();
 
@@ -26,7 +25,7 @@ export default function JokeViewer() {
 
     const handleLike = async () => {
         if (!isAuthenticated) {
-            toast("Please log in to jokes!");
+            toast("Please log in to like jokes!");
             return;
         }
 
@@ -35,12 +34,10 @@ export default function JokeViewer() {
             if (res.success) {
                 toast.success("Joke liked!");
                 setLiked(true);
-                setMessage("Joke liked and saved!");
             }
         } catch (err) {
             console.error(err);
             toast.error("Failed to like joke.");
-            setMessage("Failed to like joke.");
         }
     };
 
@@ -55,7 +52,7 @@ export default function JokeViewer() {
                             ? liked
                                 ? <Heart className="fill-current"/>
                                 : <Heart/>
-                            : <HeartOff/> // show HeartOff if not logged in
+                            : <HeartOff/>
                         }
                     </div>
                 )}

@@ -1,4 +1,5 @@
 function createFakeToken(username) {
+
     const now = Math.floor(Date.now() / 1000);
     const exp = now + 60 * 60; // expires in 1 hour
 
@@ -11,7 +12,7 @@ function createFakeToken(username) {
         username,
     };
 
-    const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+    const header = btoa(JSON.stringify({alg: "HS256", typ: "JWT"}));
     const body = btoa(JSON.stringify(payload));
     const signature = "mock-signature";
 

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import React, {useEffect, useState} from "react";
+import {api} from "../../services/api";
 import {Heart} from "lucide-react"
 import {Card, CardContent, CardFooter} from "../ui/card.jsx";
+
 export default function TopJokesViewer() {
     const [jokes, setJokes] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Fetch top jokes on mount
     useEffect(() => {
         fetchTopJokes();
     }, []);
@@ -34,7 +34,7 @@ export default function TopJokesViewer() {
                         <p>{joke.value}</p>
                     </CardContent>
                     <CardFooter className="flex items-center space-x-2">
-                        <Heart className="w-4 h-4" />
+                        <Heart className="w-4 h-4"/>
                         <span>{joke.like_count}</span>
                     </CardFooter>
                 </Card>

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useReactAuthKitStore } from "react-auth-kit/AuthContext";
+import {useEffect, useState} from "react";
+import {useReactAuthKitStore} from "react-auth-kit/AuthContext";
 import isAuth from "react-auth-kit/hooks/useIsAuthenticated";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
 
