@@ -1,5 +1,5 @@
-import {backend} from "~/services/axiosProvider.js";
-import {mockApi} from "~/services/mockApi.js";
+import {backend} from "./axiosProvider.js";
+import {mockApi} from "./mockApi.js";
 
 const apiImpl = {
     likeJoke(joke) {

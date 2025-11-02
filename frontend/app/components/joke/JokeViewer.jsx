@@ -1,9 +1,9 @@
 import {Card, CardContent, CardFooter} from "../ui/card.jsx";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Button} from "../ui/button.jsx";
 import {useIsAuthenticated} from "../../hooks/useIsAuthenticated";
-import {backend} from "../../services/axiosProvider";
-import {mockApi} from "../../services/mockApi.js";
+
+import {api} from "../../services/api.js";
 import {toast} from "sonner";
 import {Heart, HeartOff} from "lucide-react";
 
@@ -31,7 +31,7 @@ export default function JokeViewer() {
         }
 
         try {
-            const res = await mockApi.likeJoke(joke);
+            const res = await api.likeJoke(joke);
             if (res.success) {
                 toast.success("Joke liked!");
                 setLiked(true);
