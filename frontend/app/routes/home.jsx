@@ -1,15 +1,11 @@
-import {Link} from "react-router";
-//import {useEffect, useState} from "react";
-import JokeViewer from "../components/JokeViewer";
-import {LoginDialog} from "../components/LoginDialog"
-import Header from "../layout/header";
-
+import {AuthDialog} from "../components/auth/AuthDialog.jsx";
+import JokeViewer from "../components/joke/JokeViewer.jsx";
 
 export default function Home() {
     return (
         <>
-            <Header/>
             <JokeViewer/>
         </>
-    );
+    )
 }
+
