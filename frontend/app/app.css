@@ -15,8 +15,7 @@ body {
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
     }
-    height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 @theme inline {
