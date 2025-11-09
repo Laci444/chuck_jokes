@@ -2,7 +2,7 @@
 
 ## A rendszer célja
 
-A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen generált vicceket tudjanak lekérni. A látogatók regisztrálhatnak, a felhasználók bejelentkezhetnek, melyet követően lehetőség van a viccek kedvelésére. A kedveléskor az adott vicc bekerül az adatbázisba, mely alapján egy top jokes statisztika készül el. A weboldal egyszerű, reszponzív felületet kap a könnyen kezelhetőség érdekében. 
+A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen generált vicceket tudjanak lekérni, akár kategóriánként szűrve is. A látogatók regisztrálhatnak, a felhasználók bejelentkezhetnek, melyet követően lehetőség van a viccek kedvelésére. A kedveléskor az adott vicc bekerül az adatbázisba, mely alapján egy top jokes statisztika készül el. A weboldal egyszerű, reszponzív felületet kap a könnyen kezelhetőség érdekében. 
 
 ## Projektterv
 
@@ -24,12 +24,14 @@ A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen gener
 **Funkcionális követelmények:**
 * **Látogatók**: 
   - Véletlenszerűen generált viccek lekérése
+  - Lehetőség kategóriánkénti random vicc generálásra
   - Regisztrációs lehetőség
   - Top viccek megtekintése
 
 * **Regisztrált felhasználó**
   - Oldalra való bejelentkezés
   - Véletlenszerűen generált viccek lekérése
+  - Lehetőség kategóriánkénti random vicc generálásra
   - Viccek kedvelése
   - Top viccek megtekintése
   - Profiladatok módosítása
@@ -71,6 +73,7 @@ A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen gener
 
 Bejelentkezett felhasználó:
 * Lekérhet véletlenszerűen generált vicceket
+* Lekérhet véletszerűen generált vicceket egy adott kategóriára szűrve
 * Kedvelheti a vicceket
 * Megtekintheti a „Top Jokes” statisztikát
 * Kijelentkezhet
@@ -78,6 +81,7 @@ Bejelentkezett felhasználó:
 Látogató:
 * Regisztrálhat a rendszerbe
 * Lekérhet véletlenszerűen generált vicceket
+* Lekérhet véletszerűen generált vicceket egy adott kategóriára szűrve
 * Megtekintheti a „Top Jokes” statisztikát
 
 ## Fizikai környezet
@@ -148,7 +152,7 @@ Tesztelendő funkciók:
 
 ## Karbantartási terv
 
-Az webalkalmazás folyamatos üzemeltetése és karbantartása, mely magában foglalja a programhibák elhárítását, a belső igények változása miatti módosításokat, valamint a környezeti feltételek változása miatt megfogalmazott program-, illetve állomány módosítási igényeket.
+A webalkalmazás folyamatos üzemeltetése és karbantartása, mely magában foglalja a programhibák elhárítását, a belső igények változása miatti módosításokat, valamint a környezeti feltételek változása miatt megfogalmazott program-, illetve állomány módosítási igényeket.
 
 ### Karbantartás:
 - A felhasználók által felfedezett és "user reportban"elküldött hibák kijavítása.
