@@ -16,8 +16,12 @@ import Header from "./layout/header";
 import {ThemeProvider} from "./components/themeProvider.jsx";
 import {Toaster} from "./components/ui/sonner.jsx";
 
+const base = import.meta.env.BASE_URL;
+
 export const links = () => [
-    {rel: "preconnect", href: "https://fonts.googleapis.com"},
+    {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com"},
     {
         rel: "preconnect",
         href: "https://fonts.gstatic.com",
@@ -26,6 +30,39 @@ export const links = () => [
     {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    },
+    {
+        rel: "android-chrome-192x192",
+        href: base + "android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+    },
+    {
+        rel: "android-chrome-512x512",
+        href: base + "android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+    },
+    {
+        rel: "apple-touch-icon",
+        href: base + "apple-touch-icon.png",
+        sizes: "180x180",
+    },
+    {
+        rel: "icon",
+        href: base + "favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+    },
+    {
+        rel: "icon",
+        href: base + "favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+    },
+    {
+        rel: "manifest",
+        href: base + "site.webmanifest",
     },
 ];
 
