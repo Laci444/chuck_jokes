@@ -9,7 +9,7 @@ export function useLike() {
 
     const likeJoke = async (joke) => {
         if (!isAuthenticated) {
-            toast("Please log in to like jokes!");
+
             return false;
         }
 

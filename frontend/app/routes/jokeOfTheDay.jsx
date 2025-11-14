@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {Card, CardContent, CardTitle} from "../components/ui/card.jsx";
-import {Share} from "lucide-react";
-import useShare from "../hooks/useShare.jsx";
+import useShare from "../hooks/useShare.js";
 import ShareMenu from "../components/ShareMenu.jsx";
 
 export default function JokeOfTheDay() {
@@ -34,11 +33,8 @@ export default function JokeOfTheDay() {
                 return;
             }
         }
-
         fetchNewJoke();
     }, []);
-
-
 
     return (
             <Card className="w-full max-w-md mx-4 sm:mx-0 items-center">
