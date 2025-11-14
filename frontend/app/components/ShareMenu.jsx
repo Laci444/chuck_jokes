@@ -22,7 +22,8 @@ export default function ShareMenu({ shareLinks }) {
         <div className="relative" ref={menuRef}>
             <Share onClick={() => setOpen(!open)} className="cursor-pointer" />
             {open && (
-                <div className=" absolute top-full left-1/2 mt-2 transform -translate-x-1/2 p-3 flex gap-3 bg-neutral-950 place-content-center">
+                <div className="absolute top-full left-1/2 mt-2 transform -translate-x-1/2 p-3 flex gap-3 place-content-center
+                                rounded-2xl bg-neutral-300 border-2 border-black dark:bg-neutral-950  dark:border-white">
                     <a href={shareLinks.twitter} target="_blank">
                         <FaTwitter size={22} />
                     </a>
