@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import {Card, CardContent, CardTitle} from "../components/ui/card.jsx";
 import {Share} from "lucide-react";
+import useShare from "../hooks/useShare.jsx";
+import ShareMenu from "../components/ShareMenu.jsx";
 
 export default function JokeOfTheDay() {
     const [joke, setJoke] = useState(null);
+    const shareLinks = useShare(joke?.value);
 
     const fetchNewJoke = async () => {
         try {
@@ -35,6 +38,8 @@ export default function JokeOfTheDay() {
         fetchNewJoke();
     }, []);
 
+
+
     return (
             <Card className="w-full max-w-md mx-4 sm:mx-0 items-center">
                 <CardTitle className="font-bold text-2xl">Joke of The Day</CardTitle>
@@ -42,6 +47,9 @@ export default function JokeOfTheDay() {
                     <p className="text-lg">
                         {joke ? joke.value : "Loading joke..."}
                     </p>
+                    <div className="mt-4 flex justify-center">
+                        <ShareMenu shareLinks={shareLinks} />
+                    </div>
                 </CardContent>
             </Card>
     );

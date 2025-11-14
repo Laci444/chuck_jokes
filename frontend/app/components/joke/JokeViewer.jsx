@@ -5,11 +5,14 @@ import {useIsAuthenticated} from "../../hooks/useIsAuthenticated";
 import {Heart, HeartOff, Share} from "lucide-react";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from "../../components/ui/select";
 import {useLike} from "../../hooks/useLike.js";
+import useShare from "../../hooks/useShare.jsx";
+import ShareMenu from "../../components/ShareMenu.jsx";
 
 export default function JokeViewer() {
     const [joke, setJoke] = useState(null);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("all");
+    const shareLinks = useShare(joke?.value);
     const isAuthenticated = useIsAuthenticated();
     const {likeJoke, isLiked} = useLike();
 
@@ -61,7 +64,7 @@ export default function JokeViewer() {
                             }
                         </div>
                     )}
-                    <Share/>
+                    <ShareMenu shareLinks={shareLinks}/>
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center text-center space-y-4">
