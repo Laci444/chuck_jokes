@@ -8,8 +8,8 @@ import {
 
 const navigationItems = {
     Generate: "/",
+    "Joke of The Day": "/joke-of-the-day",
     "Top Jokes": "/top-jokes",
-    "List Users": "/list-users",
 };
 
 export default function Navigation() {

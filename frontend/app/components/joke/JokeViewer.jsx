@@ -2,7 +2,7 @@ import {Card, CardContent, CardFooter} from "../ui/card.jsx";
 import {useEffect, useState} from "react";
 import {Button} from "../ui/button.jsx";
 import {useIsAuthenticated} from "../../hooks/useIsAuthenticated";
-import {Heart, HeartOff} from "lucide-react";
+import {Heart, HeartOff, Share} from "lucide-react";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from "../../components/ui/select";
 import {useLike} from "../../hooks/useLike.js";
 
@@ -49,18 +49,20 @@ export default function JokeViewer() {
     return (
         <Card className="w-full max-w-md mx-4 sm:mx-0">
             <CardContent className="flex flex-col items-center text-center space-y-4">
-                <p className="text-lg">{joke ? joke.value : "Click the button to get a joke!"} </p>
-
-                {joke && (
-                    <div onClick={handleLike} className="cursor-pointer">
-                        {isAuthenticated
-                            ? isLiked(joke)
-                                ? <Heart className="fill-current"/>
-                                : <Heart/>
-                            : <HeartOff/>
-                        }
-                    </div>
-                )}
+                <p className="text-lg">{joke ? joke.value : "Click the generate button to get a joke!"} </p>
+                <div className="flex flex-row items-center space-x-4">
+                    {joke && (
+                        <div onClick={handleLike} className="cursor-pointer">
+                            {isAuthenticated
+                                ? isLiked(joke)
+                                    ? <Heart className="fill-current"/>
+                                    : <Heart/>
+                                : <HeartOff/>
+                            }
+                        </div>
+                    )}
+                    <Share/>
+                </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center text-center space-y-4">
                 <Button  onClick={() => fetchJoke(selectedCategory)} className="w-full cursor-pointer">Generate</Button>
