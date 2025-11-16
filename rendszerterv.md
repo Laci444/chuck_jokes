@@ -2,44 +2,53 @@
 
 ## A rendszer célja
 
-A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen generált vicceket tudjanak lekérni. A látogatók regisztrálhatnak, a felhasználók bejelentkezhetnek, melyet követően lehetőség van a viccek kedvelésére. A kedveléskor az adott vicc bekerül az adatbázisba, mely alapján egy top jokes statisztika készül el. A weboldal egyszerű, reszponzív felületet kap a könnyen kezelhetőség érdekében. 
+A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen generált vicceket tudjanak lekérni. A látogatók regisztrálhatnak, a felhasználók bejelentkezhetnek, melyet követően lehetőség van a viccek kedvelésére. A kedveléskor az adott vicc bekerül az adatbázisba, mely alapján egy top jokes statisztika készül el. A weboldal egyszerű, reszponzív felületet kap a könnyen kezelhetőség érdekében. A rendszer további funkciói: napi „Joke of the Day”, like visszajelző GIF animáció, valamint vicc megosztás.
 
 ## Projektterv
 
 **Ütemterv:**
-|Funkció/Story | Feladat/Task | Prioritás | Becslés | Eltelt idő | Hátralévő idő | 
-|:------------:|:------------:|:---------:|:-------:|:----------:|:-------------:|
-|Követelmény specifikáció |Követelmények összegyűjtése és leírása | 0 | 2 | 2 | 0 |
-|Rendszerterv | | 0 | 2 | 2 | 0 |
-|Backend fejlesztés | | 1 | 12 | 0 | 12 |
-|Frontend fejlesztés | | 1 | 12 | 0 | 12 |
-|Tesztelés |Funkcionális és integrációs tesztek | 2 | 10 | 0 | 10 |
+| Funkció/Story            | Feladat/Task                                                         | Prioritás | Becslés (óra) | Eltelt idő (óra) | Hátralévő idő (óra) |
+| ------------------------ | -------------------------------------------------------------------- | --------- | ------------- | ---------------- | ------------------- |
+| Követelmény specifikáció | Követelmények összegyűjtése, leírása                                 | 1         | 4             | 0                | 4                   |
+| Rendszerterv             | Architektúra, adatbázis és komponensek tervezése                     | 1         | 6             | 0                | 6                   |
+| Backend fejlesztés       | API-k, adatbázis kezelése, üzleti logika, like és toplista funkciók  | 1         | 24            | 0                | 24                  |
+| Frontend fejlesztés      | UI komponensek, navigáció, interakciók, GIF-ek és megosztás kezelése | 1         | 24            | 0                | 24                  |
+| Tesztelés                | Funkcionális és integrációs tesztek, hibajavítás                     | 2         | 10            | 0                | 10                  |
+
 
 ## Üzleti folyamatok modellje
 
 ![Usecase diagram](usecasediagram.png)
 
-## Követelmények
+## Követelmények 
 
 **Funkcionális követelmények:**
 * **Látogatók**: 
   - Véletlenszerűen generált viccek lekérése
   - Regisztrációs lehetőség
   - Top viccek megtekintése
+  - Napi „Joke of the Day” megtekintése
 
 * **Regisztrált felhasználó**
   - Oldalra való bejelentkezés
   - Véletlenszerűen generált viccek lekérése
-  - Viccek kedvelése
+  - Viccek kedvelése (Like GIF visszajelzéssel)
   - Top viccek megtekintése
   - Profiladatok módosítása
+  - Napi „Joke of the Day” megtekintése
+  - Viccek megosztása közösségi felületeken
+  
 * **Adminisztrációs funkciók**
   - Felhasználók kezelése
   - Viccek statisztikáinak megtekintése
+  
 * **Rendszer funkciók**
   - Biztonságos hitelesítés
   - Adatbázisban viccek, kedvelések tárolása
   - Hibakezelés
+  - Napi kiemelt vicc („Joke of the Day”) generálása
+  - Viccek megosztásának támogatása
+  - Like eseményhez GIF animáció megjelenítése
 
 **Nem funkcionális követelmények:**
 
@@ -71,14 +80,17 @@ A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen gener
 
 Bejelentkezett felhasználó:
 * Lekérhet véletlenszerűen generált vicceket
-* Kedvelheti a vicceket
+* Kedvelheti a vicceket (GIF animációval)
 * Megtekintheti a „Top Jokes” statisztikát
+* Megtekintheti a napi „Joke of the Day”-t
+* Megoszthatja a vicceket
 * Kijelentkezhet
 
 Látogató:
 * Regisztrálhat a rendszerbe
 * Lekérhet véletlenszerűen generált vicceket
 * Megtekintheti a „Top Jokes” statisztikát
+* Megtekintheti a napi „Joke of the Day”-t
 
 ## Fizikai környezet
 
