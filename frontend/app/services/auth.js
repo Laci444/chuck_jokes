@@ -4,13 +4,13 @@ import {backend} from "./axiosProvider";
 const authImpl = {
     async login(credentials) {
         return backend
-            .post("/auth/token/", credentials)
+            .post("/auth/token", credentials)
             .then((r) => r.data);
     },
 
     async refreshAccessToken(refreshToken) {
         return backend
-            .post("/auth/token/refresh/", {refresh: refreshToken})
+            .post("/auth/token/refresh", {refresh: refreshToken})
             .then((r) => r.data);
     },
 
@@ -22,5 +22,6 @@ const authImpl = {
 
 };
 
-const mode = import.meta.env.VITE_API_MODE || "prod";
-export const auth = mode === "mock" ? mockAuth : authImpl;
+
+export const auth =
+    import.meta.env.VITE_API_MODE === "mock" ? mockAuth : authImpl;

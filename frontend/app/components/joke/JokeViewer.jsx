@@ -11,6 +11,7 @@ import useShare from "../../hooks/useShare.js";
 import ShareMenu from "../../components/ShareMenu.jsx";
 import {toast} from "sonner";
 
+
 export default function JokeViewer() {
     const [joke, setJoke] = useState(null);
     const [categories, setCategories] = useState([]);
@@ -61,13 +62,55 @@ export default function JokeViewer() {
     }
 
     const handleLike = async () => {
+        if (!isAuthenticated || !joke) {
+            toast("Please login to like the joke!");
+            return;
+        }
+
+        const liked = await likeJoke(joke);
+        if (liked) {
+            await fetchGif();
+        }
+    }
+
+
+   /* const handleLike = async () => {
         if (isAuthenticated && joke) {
             await likeJoke(joke);
             await fetchGif();
         } else {
             toast("Please login to like the joke!");
         }
+    }*/
+
+
+
+    /*
+    const handleLike = async () => {
+        if (isAuthenticated && joke) {
+            await likeJoke(joke);
+            //await fetchGif();
+        } else {
+            toast("Please login to like the joke!");
+        }
     }
+
+    const handleLike = async (data) => {
+        if (isAuthenticated && joke) {
+            try {
+                await api.likeJoke(joke.id, data, authHeader);
+                toast.success("successfully liked joke");
+            } catch (error) {
+                toast.error("failed to like joke");
+                console.log(error);
+            } finally {
+
+            }
+        }
+
+
+    }*/
+
 
     return (
         <div className="flex flex-row items-center">
