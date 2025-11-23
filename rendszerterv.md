@@ -76,21 +76,116 @@ A rendszer célja, hogy a látogatók és felhasználók véletlenszerűen gener
 * Bejelentkezett felhasználó
 * Látogató
 
-**Rendszerhasználati esetek és lefutásaik:**
+### Rendszerhasználati esetek és lefutásaik
 
-Bejelentkezett felhasználó:
-* Lekérhet véletlenszerűen generált vicceket
-* Kedvelheti a vicceket (GIF animációval)
-* Megtekintheti a „Top Jokes” statisztikát
-* Megtekintheti a napi „Joke of the Day”-t
-* Megoszthatja a vicceket
-* Kijelentkezhet
+#### 1. Látogató
 
-Látogató:
-* Regisztrálhat a rendszerbe
-* Lekérhet véletlenszerűen generált vicceket
-* Megtekintheti a „Top Jokes” statisztikát
-* Megtekintheti a napi „Joke of the Day”-t
+**1.1. Véletlenszerű vicc lekérése**
+
+**Lefutás:**
+1. A látogató megnyitja a főoldalt.
+2. A rendszer automatikusan lekér egy random viccet az API-tól.
+3. A vicc megjelenik a felületen.
+4. A látogató új viccet kérhet a „Generate Joke” gombbal.
+   
+**1.2. Bejelentkezés**
+
+**Lefutás:**
+1. A felhasználó megadja email-címét és jelszavát.
+2. A backend ellenőrzi a hitelességet.
+3. A felhasználó átirányítódik a főoldalra.
+  
+**1.3. Regisztráció**
+
+**Lefutás:**
+1. A látogató megnyitja a „Register” oldalt.
+2. Megadja a szükséges adatokat.
+3. A rendszer ellenőrzi a mezőket.
+4. Ha minden helyes, a felhasználó rekord létrejön az adatbázisban.
+
+**1.4. Top Jokes megtekintése**
+
+**Lefutás:**
+1. A látogató a menüből kiválasztja a „Top Jokes” menüpontot.
+2. A rendszer az adatbázisból lekéri a legtöbb like-ot kapott vicceket.
+3. A lista megjelenik.
+
+**1.5. Joke of the Day megtekintése**
+
+**Lefutás:**
+1. A látogató kiválasztja a „Joke of the Day” oldalt.
+2. A rendszer az aznapi előre generált viccet mutatja.
+3. A látogató bármikor visszatérhet és újra megtekintheti.
+
+**1.6. Vicc megosztása** 
+
+**Lefutás**
+1. A felhasználó a főoldalon vagy vicc részleteinél lát egy viccet.
+2. A felhasználó a „Share” (Megosztás) gombra kattint.
+3. A rendszer megjelenít egy megosztási panelt
+4. A felhasználó kiválasztja a kívánt megosztási módot.
+5. A rendszer generál egy egyedi URL-t vagy előre kitöltött megosztási formát a platformnak megfelelően.
+6. A felhasználó megerősíti a megosztást vagy a link másolását.
+7. A felhasználó visszatérhet a viccek böngészéséhez, vagy megosztás után azonnal új viccet kérhet.
+
+#### 2. Bejelentkezett felhasználó
+
+**2.1. Vicc kedvelése**
+
+**Lefutás:**
+1. A felhasználó lát egy random viccet.
+2. A „Like” gombra kattint.
+3. A rendszer eltárolja a like-ot az adatbázisban.
+4. Megjelenik a visszajelző GIF animáció.
+
+**2.2. Vicc megosztása**
+
+**Lefutás:**
+1. A felhasználó a főoldalon vagy vicc részleteinél lát egy viccet.
+2. A felhasználó a „Share” (Megosztás) gombra kattint.
+3. A rendszer megjelenít egy megosztási panelt
+4. A felhasználó kiválasztja a kívánt megosztási módot.
+5. A rendszer generál egy egyedi URL-t vagy előre kitöltött megosztási formát a platformnak megfelelően.
+6. A felhasználó megerősíti a megosztást vagy a link másolását.
+7. A felhasználó visszatérhet a viccek böngészéséhez, vagy megosztás után azonnal új viccet kérhet.
+
+**2.3. Kijelentkezés**
+
+**Lefutás:**
+1. A felhasználó a menüből a „Logout”-ot választja.
+2. A rendszer törli a JWT tokent a böngészőből.
+3. Visszairányít a főoldalra.
+
+**2.4. Top Jokes megtekintése**
+
+**Lefutás:**
+1. A látogató a menüből kiválasztja a „Top Jokes” menüpontot.
+2. A rendszer az adatbázisból lekéri a legtöbb like-ot kapott vicceket.
+3. A lista megjelenik.
+
+**2.5. Joke of the Day megtekintése**
+
+**Lefutás:**
+1. A látogató kiválasztja a „Joke of the Day” oldalt.
+2. A rendszer az aznapi előre generált viccet mutatja.
+3. A látogató bármikor visszatérhet és újra megtekintheti.
+
+### Határ osztályok
+
+| Képernyő | Funkciók |
+|---------|----------|
+| **LandingPage** | Random vicc megjelenítése, új vicc kérés |
+| **LoginPage** | Bejelentkezés |
+| **RegisterPage** | Regisztráció |
+| **TopJokesPage** | Top viccek listázása |
+| **JokeOfTheDayPage** | Napi vicc megjelenítése |
+| **Navbar/Menu** | Navigáció, kijelentkezés |
+
+### Képernyőtervek
+https://www.figma.com/design/zJWeR8xnlT0Oax8glcPbqk/SZFM?node-id=0-1&p=f&t=H5fljHKI22Zgi2UM-0
+
+### Aktitivtási diagram
+![Activity diagram](activity_diagram.png)
 
 ## Fizikai környezet
 
