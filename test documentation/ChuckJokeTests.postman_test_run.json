@@ -1,0 +1,591 @@
+{
+	"id": "540ff565-6bfa-45c8-8213-dfa9d3830fcb",
+	"name": "ChuckJokeTests",
+	"timestamp": "2025-11-22T15:38:38.344Z",
+	"collection_id": "49017462-723ce41d-74e6-4b55-95de-01aeccf134df",
+	"folder_id": 0,
+	"environment_id": "49017462-5f22c7f0-b5dc-4be9-b374-b70e853a82bb",
+	"totalPass": 37,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-11-22T15:38:34.488Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "547f9e23-fceb-4096-92cd-7d4d8c2154e9",
+			"name": "TC007",
+			"url": "http://127.0.0.1:8000/auth/register/",
+			"time": 684,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is JSON": true,
+				"Response has email": true,
+				"Response has access token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has email": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has access token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				684
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is JSON": true,
+					"Response has email": true,
+					"Response has access token": true
+				}
+			]
+		},
+		{
+			"id": "c6b0e9ec-69d8-46ee-bb30-dc50c54a5a0c",
+			"name": "TC006",
+			"url": "http://127.0.0.1:8000/auth/token",
+			"time": 659,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				659
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9da7d861-4816-4516-a9c0-b9896b7a7102",
+			"name": "TC001",
+			"url": "http://127.0.0.1:8000/api/jokes/",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Válasz JSON formátumú": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz JSON formátumú": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Válasz JSON formátumú": true
+				}
+			]
+		},
+		{
+			"id": "760c4a22-6c7a-4bd3-9a13-97fb3648b97c",
+			"name": "TC002",
+			"url": "http://127.0.0.1:8000/api/jokes/teszt123/",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"JSON contains text field": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON contains text field": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"JSON contains text field": true
+				}
+			]
+		},
+		{
+			"id": "571ee442-4b8e-4c80-a8b6-1b9d73fd2059",
+			"name": "TC003",
+			"url": "http://127.0.0.1:8000/api/jokes/teszt123/likes/",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Response is an array": true,
+				"Like objektumok tartalmazzák az id-t és username-t": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Like objektumok tartalmazzák az id-t és username-t": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Response is an array": true,
+					"Like objektumok tartalmazzák az id-t és username-t": true
+				}
+			]
+		},
+		{
+			"id": "cec012e2-d6b0-4186-b735-226f6578e51e",
+			"name": "TC004",
+			"url": "http://127.0.0.1:8000/api/jokes/teszt123/likes/",
+			"time": 30,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is JSON": true,
+				"Response contains like_count": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains like_count": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is JSON": true,
+					"Response contains like_count": true
+				}
+			]
+		},
+		{
+			"id": "704f1898-289c-4b05-b628-1e9f9b04d818",
+			"name": "TC005",
+			"url": "http://127.0.0.1:8000/api/jokes/teszt123/likes/",
+			"time": 34,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response body is empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response body is empty": true
+				}
+			]
+		},
+		{
+			"id": "c40260bd-2f8e-4539-8813-69f26b60c681",
+			"name": "TC008",
+			"url": "http://127.0.0.1:8000/auth/token/refresh",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Response contains access token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains access token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Response contains access token": true
+				}
+			]
+		},
+		{
+			"id": "faa45a64-e11a-4d4d-a07a-898e2200660f",
+			"name": "TC009",
+			"url": "http://127.0.0.1:8000/auth/token",
+			"time": 702,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response is JSON": true,
+				"Response contains error message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains error message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				702
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Response is JSON": true,
+					"Response contains error message": true
+				}
+			]
+		},
+		{
+			"id": "508b4079-c6ad-433d-955d-9eff3c8084ca",
+			"name": "TC010",
+			"url": "http://127.0.0.1:8000/auth/register/",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response is JSON": true,
+				"Response contains error message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains error message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response is JSON": true,
+					"Response contains error message": true
+				}
+			]
+		},
+		{
+			"id": "1e2c7438-70b2-4a9d-8837-e05b200bd698",
+			"name": "TC011",
+			"url": "http://127.0.0.1:8000/admin",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is HTML": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is HTML": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is HTML": true
+				}
+			]
+		},
+		{
+			"id": "3292425b-34f9-401f-ad56-573a2828e185",
+			"name": "TC012",
+			"url": "http://127.0.0.1:8000/schema",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains 'openapi' keyword": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains 'openapi' keyword": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains 'openapi' keyword": true
+				}
+			]
+		},
+		{
+			"id": "f4a0dccd-7620-4165-bc57-1df98f438007",
+			"name": "TC013",
+			"url": "http://127.0.0.1:8000/schema/swagger-ui/",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is HTML": true,
+				"Response contains 'SwaggerUIBundle'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is HTML": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains 'SwaggerUIBundle'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is HTML": true,
+					"Response contains 'SwaggerUIBundle'": true
+				}
+			]
+		},
+		{
+			"id": "2bbbc1fc-9b1b-4c4f-ba02-54e73a315e33",
+			"name": "TC014",
+			"url": "http://127.0.0.1:8000/schema/redoc/",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is HTML": true,
+				"Response contains 'redoc'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is HTML": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains 'redoc'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is HTML": true,
+					"Response contains 'redoc'": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2253,
+	"collection": {
+		"requests": [
+			{
+				"id": "547f9e23-fceb-4096-92cd-7d4d8c2154e9",
+				"method": "POST"
+			},
+			{
+				"id": "c6b0e9ec-69d8-46ee-bb30-dc50c54a5a0c",
+				"method": "POST"
+			},
+			{
+				"id": "9da7d861-4816-4516-a9c0-b9896b7a7102",
+				"method": "GET"
+			},
+			{
+				"id": "760c4a22-6c7a-4bd3-9a13-97fb3648b97c",
+				"method": "GET"
+			},
+			{
+				"id": "571ee442-4b8e-4c80-a8b6-1b9d73fd2059",
+				"method": "GET"
+			},
+			{
+				"id": "cec012e2-d6b0-4186-b735-226f6578e51e",
+				"method": "POST"
+			},
+			{
+				"id": "704f1898-289c-4b05-b628-1e9f9b04d818",
+				"method": "DELETE"
+			},
+			{
+				"id": "c40260bd-2f8e-4539-8813-69f26b60c681",
+				"method": "POST"
+			},
+			{
+				"id": "faa45a64-e11a-4d4d-a07a-898e2200660f",
+				"method": "POST"
+			},
+			{
+				"id": "508b4079-c6ad-433d-955d-9eff3c8084ca",
+				"method": "POST"
+			},
+			{
+				"id": "1e2c7438-70b2-4a9d-8837-e05b200bd698",
+				"method": "GET"
+			},
+			{
+				"id": "3292425b-34f9-401f-ad56-573a2828e185",
+				"method": "GET"
+			},
+			{
+				"id": "f4a0dccd-7620-4165-bc57-1df98f438007",
+				"method": "GET"
+			},
+			{
+				"id": "2bbbc1fc-9b1b-4c4f-ba02-54e73a315e33",
+				"method": "GET"
+			}
+		]
+	}
+}
