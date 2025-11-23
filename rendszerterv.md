@@ -249,6 +249,25 @@ Tesztelendő funkciók:
 - Backend: egyidejűleg több kliens kiszolgálása, az adatbázis olvasása és írása
 - Frontend: a meghatározott funkciók biztosítása igényes, intuitív és hozzáférhető módon
 
+### Test case
+
+| Test Case ID | Cél                             | Módszer / Steps                                          | Várt eredmény                                               | 
+| ------------ | ------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------- | 
+| TC001        | Viccek listázása                | GET `/api/jokes/`                                        | JSON lista a viccekről, status 200                          | 
+| TC002        | Egy vicc lekérése               | GET `/api/jokes/<id>/`                                   | JSON a megadott viccről, status 200                         | 
+| TC003        | Lájkok listázása                | GET `/api/jokes/<id>/likes/`                             | JSON lista lájkokról, status 200                            |
+| TC004        | Lájk hozzáadása                 | POST `/api/jokes/<id>/likes/`                            | Lájk rögzül, status 201                                     | 
+| TC005        | Lájk törlése                    | DELETE `/api/jokes/<id>/likes/`                          | Lájk törlődik, status 204                                   | 
+| TC006        | Bejelentkezés                   | POST `/auth/token/` body: `{email, password}`            | JSON access és refresh token, status 200                    | 
+| TC007        | Regisztráció                    | POST `/auth/register/` body: `{email, password}`         | Felhasználó létrejön, status 201                            | 
+| TC008        | Token frissítés                 | POST `/auth/token/refresh/` body: `{refresh}`            | Új access token, status 200                                 | 
+| TC009        | Hibás bejelentkezés             | POST `/auth/token/` body: `{email, wrong_password}`      | Hiba JSON, status 401                                       |
+| TC010        | Hibás regisztráció              | POST `/auth/register/` body: `{invalid_email, password}` | Hiba JSON, status 400                                       |
+| TC011        | Admin felület elérhetősége      | GET `/admin/`                                            | Oldal betöltődik, status 200                                |
+| TC012        | API séma lekérése               | GET `/schema/`                                           | Tartalmazza az `openapi` kulcsot, status 200                |
+| TC013        | Swagger UI elérhetősége         | GET `/schema/swagger-ui/`                                | Oldal betöltődik, status 200, tartalmazza `SwaggerUIBundle` | 
+| TC014        | Redoc dokumentáció elérhetősége | GET `/schema/redoc/`                                     | Oldal betöltődik, status 200, tartalmazza `redoc`           | 
+
 ## Telepítési terv
 
 **Webes alkalmazás**: A szoftver webes felületéhez csak egy ajánlott böngésző telepítése szükséges (Google Chrome, Firefox, Opera, Safari), külön szoftver nem kell hozzá. A webszerverre közvetlenül az internetről kapcsolódnak rá a kliensek.
