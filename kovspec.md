@@ -65,8 +65,25 @@ A felhasználó a főoldalon kezdeményezi a  bejelentkezést, amely egy külön
 
 ### Szabad riport
 **Kérdés:** Hogyan kellene működnie az új rendszernek?
+
 **Válasz:**
-A felhasználók regisztrálhatnak, random vicceket kapnak, kedvencekbe tehetik őket, és megtekinthetik a toplistát. Az adatok biztonságosan tárolódnak.
+A rendszer egy olyan weboldalként fog működni, ahol a felhasználók véletlenszerűen generált vicceket tudnak megjeleníteni. A felületnek gyorsnak és könnyen kezelhetőnek kell lennie, mert a cél az, hogy a felhasználó azonnal hozzájusson egy új vicchez. A működés során a felhasználó elsőként a főoldalon lát egy random viccet, ezt egy háttérben lefutó API-hívás adja vissza. A random vicc minden frissítéskor újra lehívódik.
+
+A rendszer támogatja a regisztrációt és a bejelentkezést is. A felhasználó a regisztráció után tudja like-olni a vicceket, és ezek a like-ok bekerülnek az adatbázisba. A kedvelések alapján automatikusan képződik egy rangsor, ami a top viccek listája lesz. Ezt a felhasználó bármikor megtekintheti egy külön oldalon.
+
+A rendszernek minden nap ki kell választania egy "Joke of the Day" viccet. Ez random, de fontos, hogy a nap folyamán már nem változik, tehát a rendszer elmenti, melyik vicc lett az adott napra kisorsolva. A felhasználó, amikor a napi viccre kattint, mindig ugyanazt látja az adott napon belül.
+
+A like gomb működésekor meg kell jelennie egy animált GIF-nek, ami visszajelzésként szolgál. Ez nem módosítja a vicc tartalmát vagy a rendszer logikáját, csak vizuális visszacsatolást ad. A megosztási funkció lehetővé teszi, hogy a felhasználó a viccet közvetlen linken vagy valamelyik közösségi platformon megossza.
+
+A felhasználók jelszavai titkosítva kerülnek elmentésre. A meglévő API használatban marad a viccek lekéréséhez, azonban a like-ok, felhasználók és statisztikák már saját adatbázisban tárolódnak. 
+
+A rendszernek kezelnie kell azokat az eseteket is, amikor a felhasználó nem jelentkezett be. Ilyenkor csak random viccet lát, de nem tud kedvelni vagy toplistát megtekinteni. A vendégfelhasználók számára biztosítani kell a folyamatos, gyors tartalomelérést, ugyanakkor korlátozott funkciókat kell kínálni, amelyek nem igényelnek bejelentkezést. Fontos, hogy az oldalon történő navigáció reszponzívan történjen, tehát mobileszközökön ugyanúgy használható legyen, mint számítógépen.
+
+Elvárás, hogy a rendszer a GDPR követelményeinek megfelelően működjön, mivel személyes adatokat kezel. A weboldalnak szabványos technológiákkal kell készülnie, és a hozzáférhetőségi ajánlásokat célszerű figyelembe venni.
+
+Felhasználói oldalról nézve a rendszer lényege, hogy gyors, egyszerű, szórakoztató élményt nyújtson, minimális lépésekkel. Admin oldalon lehetőség van a felhasználók listázására és a viccek statisztikáinak megtekintésére, vagyis arra, hogy melyik vicc mennyi like-ot kapott.
+
+A rendszer működésében nem lehetnek hiányzó esetek: például figyelni kell arra, hogy egy felhasználó ugyanazt a viccet csak egyszer like-olhassa, illetve hogy a napi vicc ne változzon menet közben. 
 
 ### Irányított riport
 1. **Hogyan kapják a vicceket?**
