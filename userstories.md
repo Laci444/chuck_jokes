@@ -7,9 +7,12 @@ Vicces Viktor megnyitja a böngészőben a Chuck Jokes alkalmazást, és egyből
 Vicces Viktor beregisztrálhat, ahol megadja az email címét és jelszavát. A regisztrációt követően beléphet. A regisztrált felhasználók listázhatók, és megtekinthetőek.
 
 ## Big project (in the future)
+Vicces Viktor reggel belép az oldalra, és először a főoldalon találja magát, ahol a különböző viccek és menüpontok sorakoznak. Kíváncsiságból rákattint a „Joke of the Day” szekcióra, és megjelenik előtte a napi poén.
 
-Ha Vicces Viktor szeretné kifejezni, hogy egy adott vicc tetszik-e neki, akkor regisztráció és belépés után, like-olni tudja az ő ízlésének megfelelő vicceket. A kedvelt vicceket listázni tudja saját magánál és másoknál is.
+Ha Viktor szeretné kifejezni, hogy egy vicc különösen tetszik neki, regisztráció és belépés után rá tud kattintani a „Like” gombra.
+Amint megtörténik a like, a képernyőn felvillan egy Chuck Norris GIF, ami még jobban megnevetteti.
 
 Ha kíváncsi, hogy a többi ember milyen vicceket kedvelt mielőtt ő felment az oldalra, akkor ezt megnézheti egy "Top jokes" részlegben az oldal jobb oldalán.
 
-A TOP jokes oldal egyedi időszakokban is listázható, pl napi/heti/havi legkedveltebb viccek és all time best.
+Viktor annyira imádja a kedvenc viccét, hogy a „Megosztás” gombra kattint, és elküldi a barátainak. 
+
