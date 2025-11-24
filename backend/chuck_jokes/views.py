@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ReadOnlyModelViewSet, ViewSet
 
+from .filters import JokeFilter
 from .models import Category, Joke
 from .serializers import JokeSerializer, UserSerializer
 
@@ -13,6 +14,8 @@ class JokeViewSet(ReadOnlyModelViewSet):
     queryset = Joke.objects.all()
     serializer_class = JokeSerializer
     lookup_field = "external_id"
+    ordering = ["-like_count"]
+    filterset_class = JokeFilter
 
 
 class LikesViewSet(ViewSet):
@@ -37,10 +40,10 @@ class LikesViewSet(ViewSet):
                 )
             data = response.json()
 
-            categories = map(
-                lambda cat: Category.objects.get_or_create(name=cat)[0],
-                data.get("categories"),
-            )
+            categories = [
+                Category.objects.get_or_create(name=cat)[0]
+                for cat in data.get("categories", [])
+            ]
 
             joke = Joke.objects.create(
                 external_id=id,
